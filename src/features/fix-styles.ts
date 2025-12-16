@@ -35,5 +35,17 @@ export function runPre() {
         margin-right: 8px;
       }
     `)
+
+    // Fix install copy button alignment
+    addStyle(`
+      button[aria-label="Copy install command line"] {
+        right: -1px;
+      }
+
+      button[aria-label="Copy install command line"] > svg {
+        margin-right: 0;
+        margin-top: 4px;
+      }
+    `)
   }
 }
