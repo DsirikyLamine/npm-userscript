@@ -1,6 +1,6 @@
 // Move the funding button to bottom
 
-import { isValidPackagePage } from '../utils'
+import { isValidPackagePage } from '../utils.ts'
 
 export const description = `\
 Move the "Fund this package" button to the bottom of the sidebar.

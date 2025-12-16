@@ -1,8 +1,8 @@
 import { addStyle, isValidPackagePage, listenNavigate } from '../utils.ts'
 
 export const description = `\
-Improved package versions tab with compact table view, show tags next to versions, and fix
-provenance icon alignment.
+Improved package versions tab with compact table view, cumulated versions table, show tags next to
+versions, and fix provenance icon alignment.
 `
 
 interface VersionInfo {
