@@ -2,6 +2,8 @@
 
 [Install on Greasyfork](https://greasyfork.org/en/scripts/559139-npm-userscript)
 
+[Video demo on Bluesky](https://bsky.app/profile/bluwy.me/post/3ma4pgto2rs2x)
+
 Various improvements and fixes for npmjs.com.
 
 ## Features
