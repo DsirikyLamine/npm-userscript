@@ -2,21 +2,22 @@
 
 import { addStyle } from '../utils'
 
-const bannerQuery = 'section[aria-label="Site notifications"]'
+const bannerPrefix = 'npm-userscript-remember-banner:'
 const getBannerKey = (banner: Element) => {
   const text = banner.textContent.trim()
   const hash = btoa(encodeURIComponent(text)).slice(0, 16) + text.length
-  return `npm-userscript-remember-banner:${hash}`
+  return `${bannerPrefix}${hash}`
 }
 
 export function runPre() {
-  const banner = document.querySelector(bannerQuery)
-  if (!banner) return
+  // Pre-emptively hide the banner if we've previously closed any of it. We can't check the banner
+  // element here as it might not exist yet.
 
-  const key = getBannerKey(banner)
+  const wasClosed = Object.keys(localStorage).some(
+    (key) => key.startsWith(bannerPrefix) && localStorage.getItem(key) === 'hide',
+  )
 
-  // If we've previously closed this banner, hide it via CSS
-  if (localStorage.getItem(key) === 'hide') {
+  if (wasClosed) {
     addStyle(`
       section[aria-label="Site notifications"] {
         display: none;
@@ -26,7 +27,7 @@ export function runPre() {
 }
 
 export function run() {
-  const banner = document.querySelector('section[aria-label="Site notifications"]')
+  const banner = document.querySelector<HTMLElement>('section[aria-label="Site notifications"]')
   if (!banner) return
 
   const key = getBannerKey(banner)
@@ -34,6 +35,7 @@ export function run() {
   if (localStorage.getItem(key) === 'hide') {
     banner.remove()
   } else {
+    banner.style.display = 'block'
     const closeButton = banner.querySelector('button')
     closeButton?.addEventListener('click', () => {
       localStorage.setItem(key, 'hide')
