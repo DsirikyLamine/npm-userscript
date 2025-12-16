@@ -41,3 +41,33 @@ export function getPackageName(): string | undefined {
     return parts[0] || undefined
   }
 }
+
+const onNavigateListeners: Function[] = []
+export function listenNavigate(listener: () => void) {
+  if (onNavigateListeners.length === 0) {
+    const _pushState = history.pushState
+    const _replaceState = history.replaceState
+
+    history.pushState = function (...args) {
+      console.log('pushState', args)
+      _pushState.apply(this, args)
+      onNavigateListeners.forEach((l) => l())
+    }
+
+    history.replaceState = function (...args) {
+      console.log('replaceState', args)
+      _replaceState.apply(this, args)
+      onNavigateListeners.forEach((l) => l())
+    }
+
+    window.addEventListener('popstate', () => {
+      console.log('popstate')
+      onNavigateListeners.forEach((l) => l())
+    })
+  }
+
+  onNavigateListeners.push(() => {
+    // Delay to allow npm to render the new content. Sucks to hardcode but couldn't find a better way.
+    setTimeout(() => listener(), 100)
+  })
+}

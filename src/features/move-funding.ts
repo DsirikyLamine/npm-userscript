@@ -9,7 +9,7 @@ export function run() {
   let fundingButton: HTMLElement | null = null
   for (const button of sidebarButtons) {
     if (button.textContent.includes('Fund this package')) {
-      fundingButton = button as HTMLElement
+      fundingButton = button.parentElement as HTMLElement
       break
     }
   }
