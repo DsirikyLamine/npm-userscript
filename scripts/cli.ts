@@ -16,7 +16,7 @@ await build({
   userscriptMeta: {
     homepageURL: 'https://github.com/bluwy/npm-userscript',
     supportURL: 'https://github.com/bluwy/npm-userscript',
-    namespace: 'https://greasyfork.org/',
+    namespace: 'https://greasyfork.org/en/scripts/559139-npm-userscript',
     match: 'https://www.npmjs.com/**',
     icon: 'https://www.google.com/s2/favicons?sz=64&domain=npmjs.com',
     grant: 'none',
