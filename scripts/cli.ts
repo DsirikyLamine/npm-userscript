@@ -1,4 +1,4 @@
-import { build, getUserscriptManagerOutDir } from './build.ts'
+import { build, getUserscriptManagerOutDir } from '@bluwy/usb'
 
 await build({
   input: 'src/index.ts',
