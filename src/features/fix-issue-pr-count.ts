@@ -82,14 +82,14 @@ async function getIssueAndPrCount(repo: string): Promise<{ issues: number; pulls
     `https://api.github.com/search/issues?q=repo:${repo}+type:issue+state:open&per_page=0`,
   )
     .then((res) => res.json())
-    .then((data) => data.total_count)
+    .then((data) => data.total_count ?? 0)
     .catch(() => 0)
 
   const pulls = fetch(
     `https://api.github.com/search/issues?q=repo:${repo}+type:pr+state:open&per_page=0`,
   )
     .then((res) => res.json())
-    .then((data) => data.total_count)
+    .then((data) => data.total_count ?? 0)
     .catch(() => 0)
 
   const promises = await Promise.all([issues, pulls])
