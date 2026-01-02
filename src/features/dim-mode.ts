@@ -1,4 +1,6 @@
-import { addStyle } from '../utils'
+import { addStyle } from '../utils.ts'
+
+export const disabled = true
 
 export const description = `\
 Make light mode less bright. Does not implement dark mode completely.

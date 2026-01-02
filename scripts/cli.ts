@@ -12,4 +12,22 @@ await build({
     grant: 'none',
     'run-at': 'document-start',
   },
+  esbuildOptions: {
+    banner: {
+      js: await getSettingsBanner(),
+    },
+  },
 })
+
+async function getSettingsBanner() {
+  const { allFeatures } = await import('../src/all-features.ts')
+  const banner = `\
+const SETTINGS = {
+  features: {
+${Object.entries(allFeatures)
+  .map(([name, feature]) => `    "${name}": ${feature.disabled ? 'false' : 'true'}`)
+  .join(',\n')}
+  }
+}`
+  return banner
+}

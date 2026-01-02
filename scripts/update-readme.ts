@@ -29,7 +29,11 @@ function generateFeaturesTable() {
   ]
 
   for (const [name, feature] of Object.entries(allFeatures)) {
-    lines.push(`| \`${name}\` | ${feature.description.trim().replace(/\n/g, ' ')} |`)
+    let description = feature.description.trim().replace(/\n/g, ' ')
+    if (feature.disabled) {
+      description = '**[Disabled by default]** ' + description
+    }
+    lines.push(`| \`${name}\` | ${description} |`)
   }
 
   return lines.join('\n')

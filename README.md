@@ -13,6 +13,7 @@ Various improvements and fixes for npmjs.com.
 | Feature              | Description                                                                                                                                                                              |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `better-versions`    | Improved package versions tab with compact table view, cumulated versions table, show tags next to versions, and fix provenance icon alignment.                                          |
+| `dim-mode`           | **[Disabled by default]** Make light mode less bright. Does not implement dark mode completely.                                                                                          |
 | `fix-issue-pr-count` | Show "Issue" and "Pull Requests" counts in the package sidebar. At the time of writing, npm's own implementation is broken for large numbers for some reason. This temporarily fixes it. |
 | `fix-styles`         | Fix various style issues on the npm site (mostly the package page at the moment).                                                                                                        |
 | `helpful-links`      | Add helpful links beside the package name title for convenience.                                                                                                                         |
