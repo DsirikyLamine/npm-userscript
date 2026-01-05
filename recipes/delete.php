@@ -21,7 +21,7 @@ $getData = $_GET;
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once('./../header.php'); ?>
         <h1>Supprimer la recette ?</h1>
         <form action="<?php echo($rootUrl . 'recipes/post_delete.php'); ?>" method="POST">
             <div class="mb-3 visually-hidden">

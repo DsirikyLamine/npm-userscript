@@ -34,7 +34,7 @@ $recipe = $retrieveRecipeStatement->fetch(PDO::FETCH_ASSOC);
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once('./../header.php'); ?>
         <h1>Mettre à jour <?php echo($recipe['title']); ?></h1>
         <form action="<?php echo($rootUrl . 'recipes/post_update.php'); ?>" method="POST">
             <div class="mb-3 visually-hidden">

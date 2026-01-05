@@ -46,7 +46,7 @@ $insertRecipe->execute([
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once('./../header.php'); ?>
         <h1>Recette ajoutée avec succès !</h1>
         
         <div class="card">

@@ -18,7 +18,7 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once('./../header.php'); ?>
         <h1>Ajouter une recette</h1>
         <form action="<?php echo($rootUrl . 'recipes/post_create.php'); ?>" method="POST">
             <div class="mb-3">
